@@ -10,6 +10,9 @@ router.post("/webhook", async (req, res) => {
   const text = message.text.body;
   const phone = contact.wa_id;
 
+  console.log({
+    message, contact
+  })
   const payload = {
     recipient_type: "individual",
     to: phone,
@@ -22,7 +25,7 @@ router.post("/webhook", async (req, res) => {
     "https://waba-sandbox.360dialog.io/v1/messages",
     payload,
     {
-      header: {
+      headers: {
         "D360-API-KEY": "emr1IC_sandbox",
       },
     }
