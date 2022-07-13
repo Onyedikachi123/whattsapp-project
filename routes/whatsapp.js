@@ -18,7 +18,7 @@ router.post("/webhook", async (req, res) => {
       body: "Hello, dear customer!",
     },
   };
-  const res = await axios.post(
+  const _res = await axios.post(
     "https://waba-sandbox.360dialog.io/v1/messages",
     payload,
     {
@@ -27,6 +27,7 @@ router.post("/webhook", async (req, res) => {
       },
     }
   );
+  console.log(_res)
   res.status(200).send("Success");
 });
 
